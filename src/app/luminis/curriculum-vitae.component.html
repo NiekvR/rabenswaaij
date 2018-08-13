@@ -1,0 +1,76 @@
+<div class="luminis-circle">
+  <img class="logo" src="../../assets/img/luminis-logo.png"/>
+  <h1>{{curriculumVitae.name}} - Curriculum Vitae</h1>
+
+  <h2>Personalia</h2>
+  <table class="personalia">
+    <tr>
+      <td><strong>Naam</strong></td>
+      <td>{{curriculumVitae.name}}</td>
+      <td class="align-right" rowspan="6"><img src="../../assets/img/niekvanr.jpg" width="300"></td>
+    </tr>
+    <tr>
+      <td><strong>Functie</strong></td>
+      <td>{{curriculumVitae.personalia.function}}</td>
+    </tr>
+    <tr>
+      <td><strong>Woonplaats</strong></td>
+      <td>{{curriculumVitae.personalia.city}}</td>
+    </tr>
+    <tr>
+      <td><strong>Geboortedatum</strong></td>
+      <td>{{curriculumVitae.personalia.birthDate}}</td>
+    </tr>
+    <tr>
+      <td><strong>Nationaliteit</strong></td>
+      <td>{{curriculumVitae.personalia.nationality}}</td>
+    </tr>
+    <tr>
+      <td><strong>Talen</strong></td>
+      <td>{{curriculumVitae.personalia.languages.join(', ')}}</td>
+    </tr>
+  </table>
+
+  <div class="column-layout">
+    <div class="column">
+      <h2>Profiel</h2>
+      <h3>Reguliere opleiding</h3>
+      <div class="aligned-text" *ngFor="let education of curriculumVitae.education | orderBy: {property: 'endYear', direction: -1}">
+        <div>{{education.name}}</div>
+        <div>{{education.startYear}} - {{education.endYear}}</div>
+      </div>
+      <h3>Rol</h3>
+      <div *ngFor="let role of curriculumVitae.roles">
+        <skill [skillObject]="role"></skill>
+      </div>
+      <h2>Vaardigheden</h2>
+      <h3>Programmeertalen</h3>
+      <div *ngFor="let programmingLanguage of curriculumVitae.programmingLanguages">
+        <skill [skillObject]="programmingLanguage"></skill>
+      </div>
+      <h3>Methoden en technieken</h3>
+      <div *ngFor="let method of curriculumVitae.methods">
+        <skill [skillObject]="method"></skill>
+      </div>
+    </div>
+    <div class="column">
+      <h2>Frameworks</h2>
+      <h3>Back-end</h3>
+      <div *ngFor="let framework of curriculumVitae.frameworks.backend">
+        <skill [skillObject]="framework"></skill>
+      </div>
+      <h3>Front-end</h3>
+      <div *ngFor="let framework of curriculumVitae.frameworks.frontend">
+        <skill [skillObject]="framework"></skill>
+      </div>
+      <h3>Continuous integration</h3>
+      <div *ngFor="let framework of curriculumVitae.frameworks.continuousIntegration">
+        <skill [skillObject]="framework"></skill>
+      </div>
+      <h3>Versie beheer</h3>
+      <div *ngFor="let framework of curriculumVitae.frameworks.versionControl">
+        <skill [skillObject]="framework"></skill>
+      </div>
+    </div>
+  </div>
+</div>

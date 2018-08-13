@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin: 2px 0;
+
+  i {
+    color: #a6a6a6;
+    font-size: 8px;
+    margin: 0 1px;
+
+    &.has-color {
+      color: #40879b;
+    }
+  }
+}
