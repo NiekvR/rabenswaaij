@@ -45,6 +45,36 @@
           .image {
             background-size: cover;
           }
+
+          iframe {
+            margin-left: 60px;
+          }
+        }
+
+        .arrow-text {
+          display: none;
+          font-family: 'Indie Flower', cursive;
+          font-size: 20px;
+          position: absolute;
+          bottom: 85px;
+          left: 440px;
+          text-align: center;
+
+          &.visible {
+            display: block;
+          }
+
+          img {
+            position: absolute;
+            transform: rotate(180deg);
+            width: 130px;
+            bottom: -86px;
+            left: -66px;
+          }
+
+          p {
+            margin: 0;
+          }
         }
 
         .content-text {
@@ -63,16 +93,15 @@
             height: 35px;
             background-color: rgba(0,0,0,0.8);
             color: #ffffff;
-            margin: 15px 0 0 300px;
             z-index: 1;
+            margin-left: 161px;
           }
         }
 
         .close-button {
           position: absolute;
-          top: 0;
-          right: 0;
-          margin: 5px;
+          top: 12px;
+          right: 15px;
         }
       }
   }

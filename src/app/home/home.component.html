@@ -33,7 +33,7 @@
           <i class="fab fa-php fa-2x" tooltip="PHP" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.php"></i>
           <i class="fab fa-wordpress-simple fa-2x" tooltip="Wordpress" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.wordpress"></i>
         </div>
-        <div class="open-detail-block" openDetailBlockDirective [color]="project.color" (click)="detailBlock(i, project)">
+        <div class="open-detail-block" openDetailBlockDirective [color]="project.color" [focus]="selectedProject === project.title" (click)="detailBlock(i, project)">
           <i class="fas fa-angle-down fa-2x"></i>
         </div>
       </div>
@@ -42,14 +42,21 @@
       <div class="content" *ngIf="detailProject">
         <!-- <div class="under-construction"></div> -->
         <div class="content-image">
-          <div class="image" [style.backgroundImage]="'url(' + detailProject.detailImage + ')'"></div>
+          <div *ngIf="selectedProject !== 'Veldweekend'" class="image" [style.backgroundImage]="'url(' + detailProject.detailImage + ')'"></div>
+          <div *ngIf="selectedProject === 'Veldweekend'">
+            <iframe src="http://ternwebdesign.nl/veldweekend" width="320" height="490" frameborder="0"></iframe>
+          </div>
+        </div>
+        <div *ngIf="selectedProject === 'Veldweekend'" class="arrow-text" [class.visible]="displayArrow">
+          <p>Dit is een werkend app.</p>
+          <p>Klik hier!</p>
+          <img src="assets/img/arrow-svg-curved-6.png"/>
         </div>
         <div class="content-text">
           <h1>
             {{ detailProject.title }}
           </h1>
-          <p>
-            {{ detailProject.text }}
+          <p [innerHtml]="detailProject.text">
           </p>
           <a [href]="detailProject.url" [style.backgroundColor]="detailProject.color" target="_blank">{{ 'Ga naar site' | uppercase  }}</a>
         </div>

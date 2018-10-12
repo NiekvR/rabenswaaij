@@ -6,7 +6,10 @@ export const PROJECTS: Project[] = [
     headerImage: 'assets/img/header_voetreflex_nicole.jpg',
     title: 'Voetreflextherapie Nicole',
     excerpt: 'Website voor de voetreflextherapie praktijk van Nicole Nuijten',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    text: '<p>De responsive website van Nicole bestaat uit een aantal statische pagina\'s ' + 
+    ', een simpel contact formulier wat resulteerd in een mail naar Nicole en een google maps ' +
+    'implementatie voor een routebeschrijving.</p> <p>De website is een angular 5 app, gehost ' +
+    ' in firebase en maakt gebruikt van firebase functions.</p>',
     frameworks: {
       html: true,
       css: true,
@@ -19,18 +22,23 @@ export const PROJECTS: Project[] = [
     url: 'https://voetreflexzonetherapienicole.firebaseapp.com/'
   },
   {
-    stack: 'full-stack',
-    headerImage: 'assets/img/into_the_garden.png',
-    title: 'Into The Garden',
-    excerpt: '',
-    text: '',
+    stack: 'frontend',
+    headerImage: 'assets/img/veldweekend.jpg',
+    title: 'Veldweekend',
+    excerpt: 'Een digitaal program- maboek voor een lang weekend weg',
+    text: '<p>De responsive website van Nicole bestaat uit een aantal statische pagina\'s ' + 
+    ', een simpel contact formulier wat resulteerd in een mail naar Nicole en een google maps ' +
+    'implementatie voor een routebeschrijving.</p> <p>De website is een angular 5 app, gehost ' +
+    ' in firebase en maakt gebruikt van firebase functions.</p>',
     frameworks: {
       html: true,
       css: true,
-      java: true,
+      js: true,
     },
     size: 'sm',
-    color: '#BED63A'
+    color: '#76B542',
+
+    url: 'http://www.ternwebdesign.nl/veldweekend/'
   },
   {
     stack: 'frontend / mobile app',
@@ -50,20 +58,6 @@ export const PROJECTS: Project[] = [
     },
     size: 'lg',
     color: '#55B6D7'
-  },
-  {
-    stack: 'frontend',
-    headerImage: 'assets/img/veldweekend.jpg',
-    title: 'Veldweekend',
-    excerpt: '',
-    text: '',
-    frameworks: {
-      html: true,
-      css: true,
-      js: true,
-    },
-    size: 'sm',
-    color: '#76B542'
   },
   {
     stack: 'frontend',

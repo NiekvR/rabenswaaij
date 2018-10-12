@@ -10,11 +10,13 @@ import { Project } from './project';
 export class HomeComponent implements OnInit, AfterViewInit {
   private detailBlockElement: Element;
   private projectListElement: Element;
-  private openDetailBlockElement: Element;
+  private arrowEl: Element;
 
   public projects: Project[];
   public detailProject: Project;
   public detailBlockButtonHidden: boolean = false;
+  public selectedProject: string;
+  public displayArrow: boolean;
 
   constructor(private el: ElementRef, private renderer: Renderer2, private dataService: DataService) { }
 
@@ -25,7 +27,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.detailBlockElement = this.el.nativeElement.querySelector('.item.detail');
     this.projectListElement = this.el.nativeElement.querySelector('ul.project-list');
-    this.openDetailBlockElement = this.el.nativeElement.querySelector('.open-detail-block');
+    this.arrowEl = this.el.nativeElement.querySelector('.arrow-text');
+    console.log(this.arrowEl);
   }
 
   getProjects(): void {
@@ -38,9 +41,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   detailBlock(index: number, project: Project) {
     if (!this.detailProject) {
+      this.selectedProject = project.title;
       this.openDetailBlock(index, project);
     } else {
       if (this.detailProject.title !== project.title) {
+        this.selectedProject = project.title;
         setTimeout(() => {
           this.openDetailBlock(index, project);
         }, 1000);
@@ -58,12 +63,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.renderer.insertBefore(this.projectListElement, this.detailBlockElement, this.projectListElement.querySelectorAll('li')[this.getDetailBlockPosition(index)]);
     this.detailProject = project;
     setTimeout(() => {
-      this.renderer.setStyle(this.detailBlockElement, 'height', '300px');
+      if(project.title === 'Veldweekend') {
+        this.renderer.setStyle(this.detailBlockElement, 'height', '500px');
+      } else {
+        this.renderer.setStyle(this.detailBlockElement, 'height', '300px');
+      }
     }, 25);
+    setTimeout(() => {
+      if(project.title === 'Veldweekend') {
+        this.displayArrow = true;
+      }
+    }, 1500)
     this.detailBlockButtonHidden = true;
   }
 
   closeDetailBlock() {
+    this.displayArrow = false;
     setTimeout(() => {
       this.detailProject = null;
     }, 700);
