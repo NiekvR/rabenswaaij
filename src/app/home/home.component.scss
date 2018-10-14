@@ -44,10 +44,21 @@
 
           .image {
             background-size: cover;
+
+            &.veldweekend {
+              width: 320px;
+              margin-left: 60px;
+            }
           }
 
           iframe {
             margin-left: 60px;
+            display: none;
+            z-index: 10;
+          }
+
+          .visible {
+            display: block;
           }
         }
 
@@ -56,8 +67,8 @@
           font-family: 'Indie Flower', cursive;
           font-size: 20px;
           position: absolute;
-          bottom: 85px;
-          left: 440px;
+          bottom: 100px;
+          left: 389px;
           text-align: center;
 
           &.visible {
@@ -68,8 +79,8 @@
             position: absolute;
             transform: rotate(180deg);
             width: 130px;
-            bottom: -86px;
-            left: -66px;
+            bottom: -103px;
+            left: -15px;
           }
 
           p {
@@ -79,7 +90,7 @@
 
         .content-text {
           flex-grow: 1;
-          padding-top: 35px;
+          padding-top: 30px;
 
           h1 {
             text-align: center;
@@ -232,6 +243,21 @@
       }
       &.lg {
           width: 100%;
+      }
+
+      &.detail {
+        flex-direction: column;
+
+        .content {
+          .content-image {
+            display: none;
+          }
+          .content-text {
+            a {
+              margin-left: calc(50% - 50px);
+            }
+          }
+        }
       }
 
       .logo-container {
