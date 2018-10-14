@@ -6,7 +6,6 @@ import { CurriculumVitaeComponent } from "./luminis/curriculum-vitae.component";
 
 const appRoutes: Routes = [
   { path: 'home',        component: HomeComponent },
-  { path: 'luminis',        component: CurriculumVitaeComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }
 ];
 
