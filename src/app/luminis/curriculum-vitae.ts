@@ -6,6 +6,8 @@ export class CurrciculumVitae {
   programmingLanguages: Skill[];
   methods: Skill[];
   frameworks: Framework;
+  profielschets: string[];
+  projects: Project[];
 }
 
 
@@ -34,4 +36,13 @@ export class Framework {
   frontend: Skill[];
   continuousIntegration: Skill[];
   versionControl: Skill[];
+}
+
+export class Project {
+  periode: string;
+  opdrachtgever: string;
+  rol: string;
+  vaardigheden: string;
+  situatie: string;
+  werkzaamheden: string
 }

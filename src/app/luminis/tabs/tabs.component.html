@@ -1,0 +1,4 @@
+<div class="tabs-container">
+  <div *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">{{ tab.tabTitle }}</div>
+</div>
+<ng-content></ng-content>

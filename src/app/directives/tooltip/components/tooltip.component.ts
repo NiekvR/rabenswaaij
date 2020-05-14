@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, AfterViewInit, HostListener, ViewChild, ElementRef, Directive, Inject, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-tooltip',
   templateUrl: './tooltip.component.html',
-  styleUrls: ['./tooltip.component.scss']
+  styleUrls: [ './tooltip.component.scss' ]
 })
 export class TooltipComponent implements AfterViewInit {
 
@@ -13,7 +13,7 @@ export class TooltipComponent implements AfterViewInit {
   bottom: string;
   left: string;
 
-  constructor(private el: ElementRef, private renderer: Renderer2 ) {
+  constructor(private el: ElementRef, private renderer: Renderer2) {
   }
 
   ngAfterViewInit() {

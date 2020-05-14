@@ -10,6 +10,8 @@ import { OpenDetailBlockDirective } from "./directives/tooltip/directive/open-de
 import { CurriculumVitaeComponent } from "./luminis/curriculum-vitae.component";
 import {OrderByPipe} from "./pipes/order-by.pipe";
 import {SkillComponent} from "./luminis/skill/skill.component";
+import {TabsComponent} from "./luminis/tabs/tabs.component";
+import {TabComponent} from "./luminis/tabs/tab/tab.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {SkillComponent} from "./luminis/skill/skill.component";
     TooltipComponent,
     TooltipDirective,
     OpenDetailBlockDirective,
-    OrderByPipe
+    OrderByPipe,
+    TabsComponent,
+    TabComponent
 ],
   imports: [
     BrowserModule,

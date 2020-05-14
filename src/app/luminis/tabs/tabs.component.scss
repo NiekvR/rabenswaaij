@@ -1,0 +1,21 @@
+.tabs-container {
+  display: flex;
+
+  div {
+    padding: 5px 10px;
+    border-left: 1px solid #40879b;
+    border-top: 1px solid #40879b;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    cursor: pointer;
+
+    &:last-child {
+      border-right: 1px solid #40879b;
+    }
+
+    &.active {
+      background-color: #40879b;
+      color: #ffffff;
+    }
+  }
+}
