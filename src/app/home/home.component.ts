@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     'md': 300,
     'lg': 400
   };
+  public closeDetails: Project;
 
   constructor(private el: ElementRef, private renderer: Renderer2, private dataService: DataService) { }
 
@@ -88,17 +89,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   openDetailBlock(index: number, project: Project) {
+    this.closeDetails = project;
     this.renderer.removeChild(this.projectListElement, this.detailBlockElement);
     this.renderer.insertBefore(this.projectListElement, this.detailBlockElement, this.projectListElement.querySelectorAll('li')[this.detailBlockPositionInList[this.detailBlockPositionPerListElement[index + 1]]]);
     this.detailProject = project;
     setTimeout(() => {
-      if(window.screen.width < 740) {
-        this.renderer.setStyle(this.detailBlockElement, 'height', '400px');
-      } else if (project.title === 'Veldweekend') {
-        this.renderer.setStyle(this.detailBlockElement, 'height', '500px');
-      } else {
-        this.renderer.setStyle(this.detailBlockElement, 'height', '300px');
-      }
+      this.renderer.setStyle(this.detailBlockElement, 'height', `${project.height || 300 }px`);
     }, 25);
     setTimeout(() => {
       if(project.title === 'Veldweekend') {
@@ -109,8 +105,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   closeDetailBlock() {
-    this.selectedProject = null;
-    this.displayApp = false;
+    this.closeDetails = null;
     setTimeout(() => {
       this.detailProject = null;
     }, 700);

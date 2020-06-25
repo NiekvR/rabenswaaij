@@ -1,8 +1,8 @@
-<div class="luminis-circle">
+<div #toPdf class="luminis-circle">
   <img class="logo" src="../../assets/img/luminis-logo.png"/>
   <h1>{{curriculumVitae.name}} - Curriculum Vitae</h1>
 
-  <h2>Personalia</h2>
+  <h2 class="personalia">Personalia</h2>
   <table class="personalia">
     <tr>
       <td><strong>Naam</strong></td>
@@ -31,46 +31,95 @@
     </tr>
   </table>
 
-  <div class="column-layout">
-    <div class="column">
-      <h2>Profiel</h2>
-      <h3>Reguliere opleiding</h3>
-      <div class="aligned-text" *ngFor="let education of curriculumVitae.education | orderBy: {property: 'endYear', direction: -1}">
-        <div>{{education.name}}</div>
-        <div>{{education.startYear}} - {{education.endYear}}</div>
+  <tabs>
+    <tab tabTitle="Profiel">
+      <div class="column-layout">
+        <div class="column">
+          <h2>Profiel</h2>
+          <h3>Reguliere opleiding</h3>
+          <div class="aligned-text" *ngFor="let education of curriculumVitae.education | orderBy: {property: 'endYear', direction: -1}">
+            <div>{{education.name}}</div>
+            <div>{{education.startYear}} - {{education.endYear}}</div>
+          </div>
+          <h3>Rol</h3>
+          <div *ngFor="let role of curriculumVitae.roles">
+            <skill [skillObject]="role"></skill>
+          </div>
+          <h2>Vaardigheden</h2>
+          <h3>Programmeertalen</h3>
+          <div *ngFor="let programmingLanguage of curriculumVitae.programmingLanguages">
+            <skill [skillObject]="programmingLanguage"></skill>
+          </div>
+          <h3>Methoden en technieken</h3>
+          <div *ngFor="let method of curriculumVitae.methods">
+            <skill [skillObject]="method"></skill>
+          </div>
+        </div>
+        <div class="column">
+          <h2>Frameworks</h2>
+          <h3>Back-end</h3>
+          <div *ngFor="let framework of curriculumVitae.frameworks.backend">
+            <skill [skillObject]="framework"></skill>
+          </div>
+          <h3>Front-end</h3>
+          <div *ngFor="let framework of curriculumVitae.frameworks.frontend">
+            <skill [skillObject]="framework"></skill>
+          </div>
+          <h3>Continuous integration</h3>
+          <div *ngFor="let framework of curriculumVitae.frameworks.continuousIntegration">
+            <skill [skillObject]="framework"></skill>
+          </div>
+          <h3>Versie beheer</h3>
+          <div *ngFor="let framework of curriculumVitae.frameworks.versionControl">
+            <skill [skillObject]="framework"></skill>
+          </div>
+        </div>
       </div>
-      <h3>Rol</h3>
-      <div *ngFor="let role of curriculumVitae.roles">
-        <skill [skillObject]="role"></skill>
-      </div>
-      <h2>Vaardigheden</h2>
-      <h3>Programmeertalen</h3>
-      <div *ngFor="let programmingLanguage of curriculumVitae.programmingLanguages">
-        <skill [skillObject]="programmingLanguage"></skill>
-      </div>
-      <h3>Methoden en technieken</h3>
-      <div *ngFor="let method of curriculumVitae.methods">
-        <skill [skillObject]="method"></skill>
-      </div>
-    </div>
-    <div class="column">
-      <h2>Frameworks</h2>
-      <h3>Back-end</h3>
-      <div *ngFor="let framework of curriculumVitae.frameworks.backend">
-        <skill [skillObject]="framework"></skill>
-      </div>
-      <h3>Front-end</h3>
-      <div *ngFor="let framework of curriculumVitae.frameworks.frontend">
-        <skill [skillObject]="framework"></skill>
-      </div>
-      <h3>Continuous integration</h3>
-      <div *ngFor="let framework of curriculumVitae.frameworks.continuousIntegration">
-        <skill [skillObject]="framework"></skill>
-      </div>
-      <h3>Versie beheer</h3>
-      <div *ngFor="let framework of curriculumVitae.frameworks.versionControl">
-        <skill [skillObject]="framework"></skill>
-      </div>
-    </div>
-  </div>
+    </tab>
+    <tab tabTitle="Profielschets">
+      <h2>Profielschets</h2>
+      <p *ngFor="let alinea of curriculumVitae.profielschets">{{alinea}}</p>
+    </tab>
+    <tab tabTitle="Projectervaring">
+      <h2>Projectervaring</h2>
+      <p>Onderstaand vindt u een selectie van de projecten waar Niek de afgelopen jaren werkzaam in was:</p>
+      <table class="project" *ngFor="let project of curriculumVitae.projects">
+        <tr>
+          <td><strong>Periode</strong></td>
+          <td>{{project.periode}}</td>
+        </tr>
+        <tr>
+          <td><strong>Opdrachtgever</strong></td>
+          <td>{{project.opdrachtgever}}</td>
+        </tr>
+        <tr>
+          <td><strong>Rol</strong></td>
+          <td>{{project.rol}}</td>
+        </tr>
+        <tr>
+          <td><strong>Vaardigheden</strong></td>
+          <td>{{project.vaardigheden}}</td>
+        </tr>
+        <tr>
+          <td><strong>Situatie</strong></td>
+          <td>{{project.situatie}}</td>
+        </tr>
+        <tr>
+          <td><strong>Werkzaamheden</strong></td>
+          <td>{{project.werkzaamheden}}</td>
+        </tr>
+      </table>
+    </tab>
+  </tabs>
+</div>
+
+<button class="pdf" (click)="downloadPdf()">Download PDF</button>
+
+<div class="filter">
+  <h2>Filter</h2>
+  <h3>Projecten</h3>
+  <label class="checkbox-container">One
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+  </label>
 </div>

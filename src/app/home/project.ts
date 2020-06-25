@@ -9,7 +9,9 @@ export class Project {
   size: string;
   color: string;
   detailImage?: string;
+  detailLink?: string;
   url?: string;
+  height?: number;
 }
 
 export class Frameworks {
@@ -24,4 +26,5 @@ export class Frameworks {
   android ? = false;
   php ? = false;
   wordpress ? = false;
+  firebase ? = false;
 }

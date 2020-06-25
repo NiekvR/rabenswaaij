@@ -38,62 +38,25 @@
         overflow: hidden;
 
         .content-image {
-          flex-grow: 1;
-          width: 100%;
+          flex: 0 0 50%;
           height: 100%;
 
           .image {
             background-size: cover;
-
-            &.veldweekend {
-              width: 320px;
-              margin-left: 60px;
-            }
-          }
-
-          iframe {
-            margin-left: 60px;
-            display: none;
-            z-index: 10;
-          }
-
-          .visible {
-            display: block;
-          }
-        }
-
-        .arrow-text {
-          display: none;
-          font-family: 'Indie Flower', cursive;
-          font-size: 20px;
-          position: absolute;
-          bottom: 100px;
-          left: 389px;
-          text-align: center;
-
-          &.visible {
-            display: block;
-          }
-
-          img {
-            position: absolute;
-            transform: rotate(180deg);
-            width: 130px;
-            bottom: -103px;
-            left: -15px;
-          }
-
-          p {
-            margin: 0;
           }
         }
 
         .content-text {
-          flex-grow: 1;
-          padding-top: 30px;
+          padding-top: 35px;
 
           h1 {
             text-align: center;
+          }
+
+          .detail-text {
+            p {
+              margin-bottom: 0;
+            }
           }
 
           a {
@@ -105,14 +68,14 @@
             background-color: rgba(0,0,0,0.8);
             color: #ffffff;
             z-index: 1;
-            margin-left: 161px;
           }
         }
 
         .close-button {
           position: absolute;
-          top: 12px;
-          right: 15px;
+          top: 0;
+          right: 0;
+          margin: 5px;
         }
       }
   }
@@ -159,7 +122,7 @@
       position: relative;
 
       .image {
-        background-size: 100%;
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         height: 100%;
@@ -196,6 +159,10 @@
       p {
         font-size: 16px;
         margin: 5px 0 0 0;
+      }
+
+      div {
+        font-size: 16px;
       }
     }
 

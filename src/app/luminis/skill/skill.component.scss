@@ -7,13 +7,22 @@
 
   margin: 2px 0;
 
-  i {
-    color: #a6a6a6;
-    font-size: 8px;
-    margin: 0 1px;
+  .levels {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 
-    &.has-color {
-      color: #40879b;
+    .level {
+      width: 8px;
+      height: 8px;
+      background: #a6a6a6;
+      margin: 0 1px;
+      border-radius: 4px;
+
+      &.has-color {
+        background: #40879b;
+      }
     }
+
   }
 }
