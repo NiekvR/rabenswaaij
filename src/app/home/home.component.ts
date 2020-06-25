@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public projects: Project[];
   public detailProject: Project;
   public detailBlockButtonHidden: boolean = false;
+  public closeDetails: Project;
 
   constructor(private el: ElementRef, private renderer: Renderer2, private dataService: DataService) { }
 
@@ -54,16 +55,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   openDetailBlock(index: number, project: Project) {
+    this.closeDetails = project;
     this.renderer.removeChild(this.projectListElement, this.detailBlockElement);
     this.renderer.insertBefore(this.projectListElement, this.detailBlockElement, this.projectListElement.querySelectorAll('li')[this.getDetailBlockPosition(index)]);
     this.detailProject = project;
     setTimeout(() => {
-      this.renderer.setStyle(this.detailBlockElement, 'height', '300px');
+      this.renderer.setStyle(this.detailBlockElement, 'height', `${project.height || 300 }px`);
     }, 25);
     this.detailBlockButtonHidden = true;
   }
 
   closeDetailBlock() {
+    this.closeDetails = null;
     setTimeout(() => {
       this.detailProject = null;
     }, 700);

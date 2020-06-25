@@ -12,6 +12,7 @@ import {OrderByPipe} from "./pipes/order-by.pipe";
 import {SkillComponent} from "./luminis/skill/skill.component";
 import {TabsComponent} from "./luminis/tabs/tabs.component";
 import {TabComponent} from "./luminis/tabs/tab/tab.component";
+import { SafePipe } from './pipes/safe.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {TabComponent} from "./luminis/tabs/tab/tab.component";
     OpenDetailBlockDirective,
     OrderByPipe,
     TabsComponent,
-    TabComponent
+    TabComponent,
+    SafePipe
 ],
   imports: [
     BrowserModule,

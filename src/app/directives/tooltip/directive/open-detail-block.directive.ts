@@ -1,19 +1,27 @@
-import {Directive, Input, HostListener, ElementRef, Renderer2, AfterViewInit} from '@angular/core';
+import { Directive, Input, HostListener, ElementRef, Renderer2, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Directive({
   selector: '[openDetailBlockDirective]'
 })
-export class OpenDetailBlockDirective implements AfterViewInit{
+export class OpenDetailBlockDirective implements AfterViewInit, OnChanges {
   private arrowElement: Element;
   private focus: boolean = false;
 
   @Input('color') color: string;
+  @Input('changedFocus') changedFocus = false
 
   constructor(private element: ElementRef, private renderer: Renderer2) {}
 
+  ngOnChanges(changes: SimpleChanges) {
+    if(!!changes.changedFocus && !!changes.changedFocus.previousValue) {
+      this.focus = false;
+      this.resetArrow();
+    }
+  }
+
+
   ngAfterViewInit() {
     this.arrowElement = this.element.nativeElement.querySelector('i');
-    console.log(this.arrowElement);
   }
 
   @HostListener('mouseenter')
@@ -32,15 +40,22 @@ export class OpenDetailBlockDirective implements AfterViewInit{
 
   @HostListener('click')
   click() {
-    console.log('fire');
     if (this.focus) {
       this.focus = false;
-      this.renderer.removeStyle(this.element.nativeElement, 'color');
-      this.renderer.removeStyle(this.arrowElement, 'transform');
+      this.resetArrow();
     } else {
       this.focus = true;
-      this.renderer.setStyle(this.element.nativeElement, 'color', this.color);
-      this.renderer.setStyle(this.arrowElement, 'transform', 'rotate(180deg)');
+      this.rotateArrow();
     }
+  }
+
+  private resetArrow() {
+    this.renderer.removeStyle(this.element.nativeElement, 'color');
+    this.renderer.removeStyle(this.arrowElement, 'transform');
+  }
+
+  private rotateArrow() {
+    this.renderer.setStyle(this.element.nativeElement, 'color', this.color);
+    this.renderer.setStyle(this.arrowElement, 'transform', 'rotate(180deg)');
   }
 }

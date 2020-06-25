@@ -33,7 +33,7 @@
           <i class="fab fa-php fa-2x" tooltip="PHP" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.php"></i>
           <i class="fab fa-wordpress-simple fa-2x" tooltip="Wordpress" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.wordpress"></i>
         </div>
-        <div class="open-detail-block" openDetailBlockDirective [color]="project.color" (click)="detailBlock(i, project)">
+        <div class="open-detail-block" openDetailBlockDirective [changedFocus]="!!closeDetails" [color]="project.color" (click)="detailBlock(i, project)">
           <i class="fas fa-angle-down fa-2x"></i>
         </div>
       </div>
@@ -41,17 +41,20 @@
     <li class="item detail">
       <div class="content" *ngIf="detailProject">
         <!-- <div class="under-construction"></div> -->
-        <div class="content-image">
+        <div class="content-image flex-50" *ngIf="detailProject.detailImage">
           <div class="image" [style.backgroundImage]="'url(' + detailProject.detailImage + ')'"></div>
         </div>
-        <div class="content-text">
+        <div class="flex-50 flex justify-content-center" *ngIf="detailProject.detailLink">
+          <iframe class="h-100 border-none" [src]="detailProject.detailLink | safe"></iframe>
+        </div>
+        <div class="content-text h-100 flex flex-column flex-50">
           <h1>
             {{ detailProject.title }}
           </h1>
-          <p>
-            {{ detailProject.text }}
-          </p>
-          <a [href]="detailProject.url" [style.backgroundColor]="detailProject.color" target="_blank">{{ 'Ga naar site' | uppercase  }}</a>
+          <div [innerHTML]="detailProject.text" class="detail-text"></div>
+          <div class="flex justify-content-center align-items-end flex-1">
+            <a *ngIf="!!detailProject.url" [href]="detailProject.url" [style.backgroundColor]="detailProject.color" target="_blank">{{ 'Ga naar site' | uppercase  }}</a>
+          </div>
         </div>
         <i class="fas fa-times fa-2x close-button" (click)="closeDetailBlock()"></i>
       </div>
