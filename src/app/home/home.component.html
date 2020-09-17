@@ -46,7 +46,7 @@
         <div class="content-image flex-50" *ngIf="detailProject.detailImage">
           <div class="image" [style.backgroundImage]="'url(' + detailProject.detailImage + ')'"></div>
         </div>
-        <div class="flex-50 flex justify-content-center" *ngIf="detailProject.detailLink">
+        <div class="flex-50 flex justify-content-center content-app" *ngIf="detailProject.detailLink">
           <iframe class="h-100 border-none" [src]="detailProject.detailLink | safe"></iframe>
         </div>
         <div class="content-text h-100 flex flex-column flex-50">
