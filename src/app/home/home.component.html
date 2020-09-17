@@ -1,13 +1,16 @@
 <div class="container">
   <ul class="project-list">
-    <li class="item md">
+    <li class="item list md">
       <div class="logo-container">
         <div class="logo"></div>
+        <div class="scroll">
+          Scroll naar beneden
+          <i class="fas fa-angle-double-down"></i>
+        </div>
       </div>
     </li>
-    <li *ngFor="let project of projects; index as i" class="item" [ngClass]="project.size">
+    <li *ngFor="let project of projects; index as i" class="item list" [ngClass]="project.size" [class.no-padding]="">
       <div class="content">
-        <!-- <div class="under-construction"></div> -->
         <div class="content-image">
           <div class="image" [style.backgroundImage]="'url(' + project.headerImage + ')'" [style.backgroundPosition]="'center ' + project.headerPosition"></div>
           <div class="tag" [style.backgroundColor]="project.color">{{ project.stack | uppercase }}</div>
@@ -33,14 +36,13 @@
           <i class="fab fa-php fa-2x" tooltip="PHP" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.php"></i>
           <i class="fab fa-wordpress-simple fa-2x" tooltip="Wordpress" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.wordpress"></i>
         </div>
-        <div class="open-detail-block" openDetailBlockDirective [changedFocus]="!!closeDetails" [color]="project.color" [focus]="selectedProject === project.title" (click)="detailBlock($event, i, project)">
+        <div class="open-detail-block" appOpenDetailBlockDirective [changedFocus]="!!closeDetails" [color]="project.color" [focus]="selectedProject === project.title" (click)="detailBlock($event, i, project)">
           <i class="fas fa-angle-down fa-2x"></i>
         </div>
       </div>
     </li>
-    <li class="item detail">
+    <li class="item detail" [class.open]="!!detailProject && !!closeDetails" [class.large]="!!detailProject?.height">
       <div class="content" *ngIf="detailProject">
-        <!-- <div class="under-construction"></div> -->
         <div class="content-image flex-50" *ngIf="detailProject.detailImage">
           <div class="image" [style.backgroundImage]="'url(' + detailProject.detailImage + ')'"></div>
         </div>
@@ -52,6 +54,7 @@
             {{ detailProject.title }}
           </h1>
           <div [innerHTML]="detailProject.text" class="detail-text"></div>
+          <img class="click-me" *ngIf="detailProject.title === 'Veldweekend'" [src]="'/assets/img/clickMe.png'">
           <div class="flex justify-content-center align-items-end flex-1">
             <a *ngIf="!!detailProject.url" [href]="detailProject.url" [style.backgroundColor]="detailProject.color" target="_blank">{{ 'Ga naar site' | uppercase  }}</a>
           </div>

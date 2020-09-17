@@ -3,8 +3,7 @@ import { Project } from '../../app/home/project';
 export const PROJECTS: Project[] = [
   {
     stack: 'frontend',
-    headerImage: 'assets/img/kuiken_teller.jpeg',
-    headerPosition: '-496px',
+    headerImage: 'assets/img/kuikenteller.jpg',
     title: 'Kuiken Teller',
     excerpt: 'Een Progressive Web App voor een citizens-science project om zoveel mogelijk waarnemingen van eendenkuikens te vergaren.',
     text: '<p>Deze applicatie is gemaakt om te onderzoeken of de achteruitgang van de wilde eend iets te maken heeft met de overleving van hun kuikens. Het project is begonnen in 2015 als een simpel webformulier en is in 2020 helemaal vernieuwd als Progressive Web Applicatie welke ook op de mobiele telefoon geïnstalleerd kan worden.</p><p>Dit jaar zijn er al meer dan 10000 waarnemingen ingestuurd.</p>',
@@ -96,8 +95,8 @@ export const PROJECTS: Project[] = [
     title: 'Into My Garden',
     excerpt: 'Digitaal tuinarchief, welke planten staan waar in je tuin en wat voor onderhoud hebben ze nodig?',
     text: '<p>Upload de plattegrond van je tuin en start met het \"planten\" van je tuin planten.</p>' +
-      '<p>Dit is een angular.io applicatie die gebruik maakt van firebase voor authenticatie, database, storage and hosting.</p>' +
-      '<p>Naast het overzicht waar welke plant in je tuin staat kun je ook alle informatie over je planten kwijt en het onderhoud dat moet gebeuren (en wanneer).</p>',
+      '<p>Naast het overzicht waar welke plant in je tuin staat kun je ook alle informatie over je planten kwijt en het onderhoud dat moet gebeuren (en wanneer).</p>' +
+      '<p>Dit is een angular.io applicatie die gebruik maakt van firebase voor authenticatie, database, storage and hosting.</p>',
     frameworks: {
       html: true,
       sass: true,
@@ -107,24 +106,24 @@ export const PROJECTS: Project[] = [
     size: 'lg',
     color: '#BED63A',
     detailImage: 'assets/img/intoMyGarden_detail.png',
-    url: 'https://intothegarden-d6110.firebaseapp.com/',
+    url: 'https://intomygarden.nl/',
   },
-  {
-    stack: 'frontend',
-    headerImage: 'assets/img/crocodile.jpg',
-    title: 'GROCS',
-    excerpt: '',
-    text: '',
-    frameworks: {
-      html: true,
-      sass: true,
-      angular: true,
-    },
-    size: 'md',
-    color: '#BED63A',
-    detailImage: 'assets/img/grocs.png',
-    url: 'https://grocs-8f331.web.app',
-  },
+  // {
+  //   stack: 'frontend',
+  //   headerImage: 'assets/img/crocodile.jpg',
+  //   title: 'GROCS',
+  //   excerpt: '',
+  //   text: '',
+  //   frameworks: {
+  //     html: true,
+  //     sass: true,
+  //     angular: true,
+  //   },
+  //   size: 'md',
+  //   color: '#BED63A',
+  //   detailImage: 'assets/img/grocs.png',
+  //   url: 'https://grocs-8f331.web.app',
+  // },
   {
     stack: 'backend',
     headerImage: 'assets/img/brandganzen.jpg',

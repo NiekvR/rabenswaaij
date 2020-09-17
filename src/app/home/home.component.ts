@@ -1,6 +1,6 @@
-import { DataService } from '../services/data.service';
-import { Component, OnInit, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
-import { Project } from './project';
+import {DataService} from '../services/data.service';
+import {AfterViewInit, Component, ElementRef, OnInit, Renderer2} from '@angular/core';
+import {Project} from './project';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +8,13 @@ import { Project } from './project';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  private detailBlockElement: Element;
-  private projectListElement: Element;
-  private arrowEl: Element;
-
   public projects: Project[];
   public detailProject: Project;
-  public detailBlockButtonHidden: boolean = false;
   public selectedProject: string;
   public displayApp: boolean;
+  public closeDetails: Project;
+  private detailBlockElement: Element;
+  private projectListElement: Element;
   private detailBlockPositionPerListElement: Array<number>;
   private detailBlockPositionInList: Array<number>;
   private listItemSizeMap = {
@@ -24,9 +22,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     'md': 300,
     'lg': 400
   };
-  public closeDetails: Project;
 
-  constructor(private el: ElementRef, private renderer: Renderer2, private dataService: DataService) { }
+  constructor(private el: ElementRef, private renderer: Renderer2, private dataService: DataService) {
+  }
 
   ngOnInit() {
     this.getProjects();
@@ -39,11 +37,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getProjects(): void {
     this.dataService.getTERNProjects()
-        .subscribe(projects => {
-          this.projects = projects;
-          console.log(projects.length);
-          this.mapListElements();
-        });
+      .subscribe(projects => {
+        this.projects = projects;
+        console.log(projects.length);
+        this.mapListElements();
+      });
   }
 
   mapListElements() {
@@ -52,15 +50,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
     let currentRow = 0;
     let currentRowPixel = 300;
     this.detailBlockPositionPerListElement.push(currentRow);
-    if(window.screen.width > 740) { 
-      let viewPortWidth = window.screen.width < 1000 ? window.screen.width : 1000;
+    if (window.screen.width > 740) {
+      const viewPortWidth = window.screen.width < 1000 ? window.screen.width : 1000;
       this.projects.forEach((project, index) => {
         currentRowPixel += this.listItemSizeMap[project.size];
-        if(currentRowPixel > viewPortWidth) {
+        if (currentRowPixel > viewPortWidth) {
           this.detailBlockPositionInList.push(index + 1);
           currentRowPixel = this.listItemSizeMap[project.size];
-          currentRow++
-        };
+          currentRow++;
+        }
+
         this.detailBlockPositionPerListElement.push(currentRow);
       });
       this.detailBlockPositionInList.push(this.projects.length + 1);
@@ -72,8 +71,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  detailBlock(event, index: number, project: Project) {
-    console.log(event);
+  public detailBlock(event, index: number, project: Project) {
     if (!this.detailProject) {
       this.selectedProject = project.title;
       this.openDetailBlock(index, project);
@@ -90,18 +88,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   openDetailBlock(index: number, project: Project) {
     this.closeDetails = project;
-    this.renderer.removeChild(this.projectListElement, this.detailBlockElement);
     this.renderer.insertBefore(this.projectListElement, this.detailBlockElement, this.projectListElement.querySelectorAll('li')[this.detailBlockPositionInList[this.detailBlockPositionPerListElement[index + 1]]]);
-    this.detailProject = project;
     setTimeout(() => {
-      this.renderer.setStyle(this.detailBlockElement, 'height', `${project.height || 300 }px`);
+      this.detailProject = project;
     }, 25);
     setTimeout(() => {
-      if(project.title === 'Veldweekend') {
+      if (project.title === 'Veldweekend') {
         this.displayApp = true;
       }
-    }, 1500)
-    this.detailBlockButtonHidden = true;
+    }, 1500);
   }
 
   closeDetailBlock() {
@@ -109,7 +104,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.detailProject = null;
     }, 700);
-    this.detailBlockButtonHidden = false;
-    this.renderer.setStyle(this.detailBlockElement, 'height', '0');
+    setTimeout(() => {
+      this.renderer.removeChild(this.projectListElement, this.detailBlockElement);
+    }, 900);
   }
 }

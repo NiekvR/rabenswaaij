@@ -1,8 +1,8 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
-import {DataService} from "../services/data.service";
-import {CurrciculumVitae} from "./curriculum-vitae";
+import {DataService} from '../services/data.service';
+import {CurrciculumVitae} from './curriculum-vitae';
+import { jsPDF } from 'jspdf';
 
-import * as jspdf from 'jspdf';
 import * as moment from 'moment';
 
 import html2canvas from 'html2canvas';
@@ -32,8 +32,8 @@ export class CurriculumVitaeComponent implements OnInit{
   }
 
   downloadPdf() {
-    let data = document.querySelector('.luminis-circle');
-    let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
+    const data = document.querySelector('.luminis-circle');
+    const pdf = new jsPDF(); // A4 size page of PDF
 
     this.hideTabs(data);
     this.showTabContent(data, 0);

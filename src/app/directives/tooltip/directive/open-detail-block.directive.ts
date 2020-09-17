@@ -1,20 +1,21 @@
 import { Directive, Input, HostListener, ElementRef, Renderer2, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Directive({
-  selector: '[openDetailBlockDirective]'
+  selector: '[appOpenDetailBlockDirective]'
 })
 export class OpenDetailBlockDirective implements AfterViewInit, OnChanges {
   private arrowElement: Element;
-  private _focus: boolean = false;
 
-  @Input('color') color: string;
-  @Input('changedFocus') changedFocus = false
+  @Input() color: string;
+  @Input() changedFocus = false;
+  @Input() focus = false;
+
+  private rotating = false;
 
   constructor(private element: ElementRef, private renderer: Renderer2) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if(!!changes.changedFocus && !!changes.changedFocus.previousValue) {
-      this.focus = false;
+    if (!!changes.changedFocus && !!changes.changedFocus.previousValue) {
       this.resetArrow();
     }
   }
@@ -25,23 +26,22 @@ export class OpenDetailBlockDirective implements AfterViewInit, OnChanges {
   }
 
   @HostListener('mouseenter')
-  mouseenter() {
-    if(!this._focus) {
+  public mouseenter() {
+    if (!this.focus) {
       this.renderer.setStyle(this.element.nativeElement, 'color', this.color);
     }
   }
 
   @HostListener('mouseout')
-  mouseout() {
+  public mouseout() {
     if (!this.focus) {
       this.renderer.removeStyle(this.element.nativeElement, 'color');
     }
   }
 
   @HostListener('click')
-  click() {
+  public click() {
     if (this.focus) {
-      this.focus = false;
       this.resetArrow();
     } else {
       this.focus = true;
@@ -50,12 +50,19 @@ export class OpenDetailBlockDirective implements AfterViewInit, OnChanges {
   }
 
   private resetArrow() {
-    this.renderer.removeStyle(this.element.nativeElement, 'color');
-    this.renderer.removeStyle(this.arrowElement, 'transform');
+    if (!this.rotating) {
+      this.focus = false;
+      this.renderer.removeStyle(this.element.nativeElement, 'color');
+      this.renderer.removeStyle(this.arrowElement, 'transform');
+    }
   }
 
   private rotateArrow() {
+    this.rotating = true;
     this.renderer.setStyle(this.element.nativeElement, 'color', this.color);
     this.renderer.setStyle(this.arrowElement, 'transform', 'rotate(180deg)');
+    setTimeout(() => {
+      this.rotating = false;
+    }, 1000);
   }
 }
