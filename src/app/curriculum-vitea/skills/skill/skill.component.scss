@@ -19,6 +19,14 @@
       margin: 0 1px;
       border-radius: 4px;
 
+      &.secondary {
+        background: white;
+
+        &.has-color {
+          background: #56b6d6;
+        }
+      }
+
       &.has-color {
         background: #40879b;
       }

@@ -1,66 +1,89 @@
-<div class="container">
-  <ul class="project-list">
-    <li class="item list md">
-      <div class="logo-container">
-        <div class="logo"></div>
-        <div class="scroll">
-          Scroll naar beneden
-          <i class="fas fa-angle-double-down"></i>
+<div class="side-bar left"></div>
+<div class="container" [class.open]="open">
+  <div class="item list logo md">
+    <div class="logo-container">
+      <button (click)="openExtras()" [class.active]="open"><span>Over...</span></button>
+      <img [src]="'assets/img/ternwebdesign.png'"/>
+      <div class="scroll">
+        Scroll naar beneden
+        <i class="fas fa-angle-double-down"></i>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let project of projects; index as i" class="item list" [ngClass]="project.size" [class.no-padding]="">
+    <div class="content">
+      <div class="content-image">
+        <div class="image" [style.backgroundImage]="'url(' + project.headerImage + ')'" [style.backgroundPosition]="'center ' + project.headerPosition"></div>
+        <div class="tag" [style.backgroundColor]="project.color">{{ project.stack | uppercase }}</div>
+      </div>
+      <div class="content-text">
+        <h1>
+          {{ project.title }}
+        </h1>
+        <p>
+          {{ project.excerpt }}
+        </p>
+      </div>
+      <div class="techs-used" [style.color]="'#C7C8C6'">
+        <i class="fab fa-html5 fa-2x" tooltip="HTML" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.html"></i>
+        <i class="fab fa-css3-alt fa-2x" tooltip="CSS" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.css"></i>
+        <i class="fab fa-sass fa-2x" tooltip="SCSS" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.sass"></i>
+        <i class="fab fa-angular fa-2x" tooltip="Angular" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.angular"></i>
+        <i class="fab fa-js fa-2x" tooltip="Javascript" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.js"></i>
+        <i class="fab fa-node-js fa-2x" tooltip="NodeJS" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.node"></i>
+        <i class="fab fa-java fa-2x" tooltip="Java" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.java"></i>
+        <i class="fab fa-app-store-ios fa-2x" tooltip="IOS" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.ios"></i>
+        <i class="fab fa-android fa-2x" tooltip="Android" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.android"></i>
+        <i class="fab fa-php fa-2x" tooltip="PHP" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.php"></i>
+        <i class="fab fa-wordpress-simple fa-2x" tooltip="Wordpress" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.wordpress"></i>
+        <svg [class.inactive]="!project.frameworks.firebase" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path tooltip="Firebase" [tooltipColor]="project.color" d="M3.89 15.673L6.255.461A.542.542 0 0 1 7.27.289L9.813 5.06 3.89 15.673zm16.795 3.691L18.433 5.365a.543.543 0 0 0-.918-.295l-14.2 14.294 7.857 4.428a1.62 1.62 0 0 0 1.587 0l7.926-4.428zM14.3 7.148l-1.82-3.482a.542.542 0 0 0-.96 0L3.53 17.984 14.3 7.148z"/></svg>
+      </div>
+      <div *ngIf="!open" class="open-detail-block" appOpenDetailBlockDirective [changedFocus]="!!closeDetails" [color]="project.color" [focus]="selectedProject === project.title" (click)="detailBlock($event, i, project)">
+        <i class="fas fa-angle-down fa-2x"></i>
+      </div>
+    </div>
+  </div>
+  <div class="item detail" [class.open]="!!detailProject && !!closeDetails" [class.large]="!!detailProject?.height">
+    <div class="detail-content" *ngIf="detailProject" [class.large]="!!detailProject?.height">
+      <div class="content-image flex-50" *ngIf="detailProject.detailImage" [style.backgroundImage]="'url(' + detailProject.detailImage + ')'">
+      </div>
+      <div class="flex-50 flex justify-content-center content-app" *ngIf="detailProject.detailLink">
+        <iframe class="h-100 border-none" [src]="detailProject.detailLink | safe"></iframe>
+      </div>
+      <div class="content-text flex flex-column flex-50">
+        <h1>
+          {{ detailProject.title }}
+        </h1>
+        <div [innerHTML]="detailProject.text" class="detail-text"></div>
+        <img class="click-me" *ngIf="detailProject.title === 'Veldweekend'" [src]="'/assets/img/clickMe.png'">
+        <div class="flex justify-content-center align-items-end flex-1" *ngIf="!!detailProject.url">
+          <a [href]="detailProject.url" [style.backgroundColor]="detailProject.color" target="_blank">{{ 'Ga naar site' | uppercase  }}</a>
         </div>
       </div>
-    </li>
-    <li *ngFor="let project of projects; index as i" class="item list" [ngClass]="project.size" [class.no-padding]="">
-      <div class="content">
-        <div class="content-image">
-          <div class="image" [style.backgroundImage]="'url(' + project.headerImage + ')'" [style.backgroundPosition]="'center ' + project.headerPosition"></div>
-          <div class="tag" [style.backgroundColor]="project.color">{{ project.stack | uppercase }}</div>
-        </div>
-        <div class="content-text">
-          <h1>
-            {{ project.title }}
-          </h1>
-          <p>
-            {{ project.excerpt }}
-          </p>
-        </div>
-        <div class="techs-used" [style.color]="'#C7C8C6'">
-          <i class="fab fa-html5 fa-2x" tooltip="HTML" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.html"></i>
-          <i class="fab fa-css3-alt fa-2x" tooltip="CSS" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.css"></i>
-          <i class="fab fa-sass fa-2x" tooltip="SCSS" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.sass"></i>
-          <i class="fab fa-angular fa-2x" tooltip="Angular" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.angular"></i>
-          <i class="fab fa-js fa-2x" tooltip="Javascript" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.js"></i>
-          <i class="fab fa-node-js fa-2x" tooltip="NodeJS" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.node"></i>
-          <i class="fab fa-java fa-2x" tooltip="Java" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.java"></i>
-          <i class="fab fa-app-store-ios fa-2x" tooltip="IOS" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.ios"></i>
-          <i class="fab fa-android fa-2x" tooltip="Android" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.android"></i>
-          <i class="fab fa-php fa-2x" tooltip="PHP" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.php"></i>
-          <i class="fab fa-wordpress-simple fa-2x" tooltip="Wordpress" [tooltipColor]="project.color" [class.inactive]="!project.frameworks.wordpress"></i>
-        </div>
-        <div class="open-detail-block" appOpenDetailBlockDirective [changedFocus]="!!closeDetails" [color]="project.color" [focus]="selectedProject === project.title" (click)="detailBlock($event, i, project)">
-          <i class="fas fa-angle-down fa-2x"></i>
-        </div>
-      </div>
-    </li>
-    <li class="item detail" [class.open]="!!detailProject && !!closeDetails" [class.large]="!!detailProject?.height">
-      <div class="content" *ngIf="detailProject">
-        <div class="content-image flex-50" *ngIf="detailProject.detailImage">
-          <div class="image" [style.backgroundImage]="'url(' + detailProject.detailImage + ')'"></div>
-        </div>
-        <div class="flex-50 flex justify-content-center content-app" *ngIf="detailProject.detailLink">
-          <iframe class="h-100 border-none" [src]="detailProject.detailLink | safe"></iframe>
-        </div>
-        <div class="content-text h-100 flex flex-column flex-50">
-          <h1>
-            {{ detailProject.title }}
-          </h1>
-          <div [innerHTML]="detailProject.text" class="detail-text"></div>
-          <img class="click-me" *ngIf="detailProject.title === 'Veldweekend'" [src]="'/assets/img/clickMe.png'">
-          <div class="flex justify-content-center align-items-end flex-1">
-            <a *ngIf="!!detailProject.url" [href]="detailProject.url" [style.backgroundColor]="detailProject.color" target="_blank">{{ 'Ga naar site' | uppercase  }}</a>
-          </div>
-        </div>
-        <i class="fas fa-times fa-2x close-button" (click)="closeDetailBlock()"></i>
-      </div>
-    </li>
-  </ul>
+      <i class="fas fa-times fa-2x close-button" (click)="closeDetailBlock()"></i>
+    </div>
+  </div>
+</div>
+<div class="extra-content" [class.open]="open">
+  <i class="fas fa-angle-right fa-2x" (click)="close()"></i>
+
+  <div class="header">
+    <h1>Over TERN / Niek</h1>
+    <div class="tab-bar" [class.open]="open">
+      <button (click)="switchTabs('ABOUT')" [class.active]="extraType === 'ABOUT'"><span>Profielschets</span></button>
+      <button (click)="switchTabs('SKILLS')"[class.active]="extraType === 'SKILLS'"><span>Vaardigheden</span></button>
+    </div>
+  </div>
+  <div class="text" [class.open]="open">
+    <ng-container *ngIf="extraType === 'ABOUT'">
+      <p *ngFor="let alinea of curriculumVitae.profielschets">{{alinea}}</p>
+      <tern-profile [curriculumVitae]="curriculumVitae" [secondary]="true"></tern-profile>
+    </ng-container>
+    <ng-container *ngIf="extraType === 'SKILLS'">
+      <tern-skills [curriculumVitae]="curriculumVitae" [secondary]="true"></tern-skills>
+    </ng-container>
+  </div>
+  <img [src]="'assets/img/niek_van_rabenswaaij_tern_small.png'"/>
+</div>
+<div class="side-bar right">
 </div>

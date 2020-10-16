@@ -2,10 +2,10 @@ import { Project } from '../../app/home/project';
 
 export const PROJECTS: Project[] = [
   {
-    stack: 'frontend',
+    stack: 'full-stack',
     headerImage: 'assets/img/kuikenteller.jpg',
     title: 'Kuiken Teller',
-    excerpt: 'Een Progressive Web App voor een citizens-science project om zoveel mogelijk waarnemingen van eendenkuikens te vergaren.',
+    excerpt: 'Een PWA voor een citizens-science project om zoveel mogelijk waarnemingen van eendenkuikens te vergaren.',
     text: '<p>Deze applicatie is gemaakt om te onderzoeken of de achteruitgang van de wilde eend iets te maken heeft met de overleving van hun kuikens. Het project is begonnen in 2015 als een simpel webformulier en is in 2020 helemaal vernieuwd als Progressive Web Applicatie welke ook op de mobiele telefoon geïnstalleerd kan worden.</p><p>Dit jaar zijn er al meer dan 10000 waarnemingen ingestuurd.</p>',
     frameworks: {
       html: true,
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
     url: 'http://biologieinhetwerkveld.nl/'
   },
   {
-    stack: 'frontend',
+    stack: 'full-stack',
     headerImage: 'assets/img/tern.jpg',
     title: 'Tern Support Systeem',
     excerpt: 'Applicatie om mogelijke vragen of issues vanuit applicaties overzichtelijk te kunnen managen.',
@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
     frameworks: {
       html: true,
       css: true,
-      java: true,
+      firebase: true
     },
     size: 'md',
     color: '#BED63A',
@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
     height: 350
   },
   {
-    stack: 'frontend',
+    stack: 'full-stack',
     headerImage: 'assets/img/intoMyGarden.png',
     title: 'Into My Garden',
     excerpt: 'Digitaal tuinarchief, welke planten staan waar in je tuin en wat voor onderhoud hebben ze nodig?',
@@ -102,6 +102,7 @@ export const PROJECTS: Project[] = [
       sass: true,
       java: true,
       angular: true,
+      firebase: true
     },
     size: 'lg',
     color: '#BED63A',

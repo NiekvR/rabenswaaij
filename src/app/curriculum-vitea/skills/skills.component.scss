@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+
+  &.secondary {
+    color: white;
+  }
+
+  h2 {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  h3 {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  .flex-50 {
+    @media screen and (max-width: 740px) {
+      flex: 0 0 100%;
+    }
+  }
+}

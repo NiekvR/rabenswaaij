@@ -1,0 +1,16 @@
+<div class="flex flex-wrap">
+  <div class="flex flex-column flex-50 p-right">
+    <h3>Opleiding</h3>
+    <div class="list aligned-text" *ngFor="let education of curriculumVitae.education | orderBy: {property: 'endYear', direction: -1}">
+      <div class="flex-1 primary">{{education.name}}</div>
+      <div class="tertiary">{{education.startYear}} - {{education.endYear}}</div>
+    </div>
+  </div>
+  <div class="flex flex-column flex-50 p-left">
+    <h3>Werkgevers</h3>
+    <div class="list aligned-text" *ngFor="let work of curriculumVitae.work | orderBy: {property: 'endYear', direction: -1}">
+      <div class="flex-1 primary">{{work.name}}</div>
+      <div class="secondary">{{work.startYear}} - {{work.endYear}}</div>
+    </div>
+  </div>
+</div>

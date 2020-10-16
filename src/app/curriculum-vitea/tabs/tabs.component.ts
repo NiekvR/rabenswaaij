@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {TabComponent} from "./tab/tab.component";
+import {TabComponent} from './tab/tab.component';
 
 @Component({
-  selector: 'tabs',
+  selector: 'tern-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss']
 })
@@ -14,18 +14,18 @@ export class TabsComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTab(tab:TabComponent) {
+  addTab(tab: TabComponent) {
     if (this.tabs.length === 0) {
       tab.active = true;
     }
     this.tabs.push(tab);
   }
 
-  selectTab(tab:TabComponent) {
+  selectTab(selectedTab: TabComponent) {
     this.tabs.forEach((tab) => {
       tab.active = false;
     });
-    tab.active = true
+    selectedTab.active = true;
   }
 
 }

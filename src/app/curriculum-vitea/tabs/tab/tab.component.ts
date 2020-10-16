@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TabsComponent} from "../tabs.component";
+import {TabsComponent} from '../tabs.component';
 
 @Component({
-  selector: 'tab',
+  selector: 'tern-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss']
 })

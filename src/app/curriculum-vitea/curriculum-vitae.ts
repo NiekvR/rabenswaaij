@@ -1,7 +1,8 @@
 export class CurrciculumVitae {
   name: string;
   personalia: Personalia;
-  education: Education[];
+  education: Experience[];
+  work: Experience[];
   roles: Skill[];
   programmingLanguages: Skill[];
   methods: Skill[];
@@ -20,7 +21,7 @@ export class Personalia {
 }
 
 
-export class Education {
+export class Experience {
   name: string;
   startYear: string;
   endYear: string;

@@ -31,56 +31,17 @@
     </tr>
   </table>
 
-  <tabs>
-    <tab tabTitle="Profiel">
-      <div class="column-layout">
-        <div class="column">
-          <h2>Profiel</h2>
-          <h3>Reguliere opleiding</h3>
-          <div class="aligned-text" *ngFor="let education of curriculumVitae.education | orderBy: {property: 'endYear', direction: -1}">
-            <div>{{education.name}}</div>
-            <div>{{education.startYear}} - {{education.endYear}}</div>
-          </div>
-          <h3>Rol</h3>
-          <div *ngFor="let role of curriculumVitae.roles">
-            <skill [skillObject]="role"></skill>
-          </div>
-          <h2>Vaardigheden</h2>
-          <h3>Programmeertalen</h3>
-          <div *ngFor="let programmingLanguage of curriculumVitae.programmingLanguages">
-            <skill [skillObject]="programmingLanguage"></skill>
-          </div>
-          <h3>Methoden en technieken</h3>
-          <div *ngFor="let method of curriculumVitae.methods">
-            <skill [skillObject]="method"></skill>
-          </div>
-        </div>
-        <div class="column">
-          <h2>Frameworks</h2>
-          <h3>Back-end</h3>
-          <div *ngFor="let framework of curriculumVitae.frameworks.backend">
-            <skill [skillObject]="framework"></skill>
-          </div>
-          <h3>Front-end</h3>
-          <div *ngFor="let framework of curriculumVitae.frameworks.frontend">
-            <skill [skillObject]="framework"></skill>
-          </div>
-          <h3>Continuous integration</h3>
-          <div *ngFor="let framework of curriculumVitae.frameworks.continuousIntegration">
-            <skill [skillObject]="framework"></skill>
-          </div>
-          <h3>Versie beheer</h3>
-          <div *ngFor="let framework of curriculumVitae.frameworks.versionControl">
-            <skill [skillObject]="framework"></skill>
-          </div>
-        </div>
-      </div>
-    </tab>
-    <tab tabTitle="Profielschets">
+  <tern-tabs>
+    <tern-tab tabTitle="Profiel">
+      <h2>Profiel</h2>
+      <tern-profile [curriculumVitae]="curriculumVitae"></tern-profile>
+      <tern-skills [curriculumVitae]="curriculumVitae"></tern-skills>
+    </tern-tab>
+    <tern-tab tabTitle="Profielschets">
       <h2>Profielschets</h2>
       <p *ngFor="let alinea of curriculumVitae.profielschets">{{alinea}}</p>
-    </tab>
-    <tab tabTitle="Projectervaring">
+    </tern-tab>
+    <tern-tab tabTitle="Projectervaring">
       <h2>Projectervaring</h2>
       <p>Onderstaand vindt u een selectie van de projecten waar Niek de afgelopen jaren werkzaam in was:</p>
       <table class="project" *ngFor="let project of curriculumVitae.projects">
@@ -109,8 +70,8 @@
           <td>{{project.werkzaamheden}}</td>
         </tr>
       </table>
-    </tab>
-  </tabs>
+    </tern-tab>
+  </tern-tabs>
 </div>
 
 <button class="pdf" (click)="downloadPdf()">Download PDF</button>

@@ -1,9 +1,10 @@
 import {DataService} from '../services/data.service';
 import {AfterViewInit, Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import {Project} from './project';
+import {CurrciculumVitae} from '../curriculum-vitea/curriculum-vitae';
 
 @Component({
-  selector: 'app-home',
+  selector: 'tern-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -13,6 +14,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public selectedProject: string;
   public displayApp: boolean;
   public closeDetails: Project;
+  public open = false;
+  public extraType: string;
+  public curriculumVitae: CurrciculumVitae;
+
   private detailBlockElement: Element;
   private projectListElement: Element;
   private detailBlockPositionPerListElement: Array<number>;
@@ -28,23 +33,69 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.getProjects();
+    this.getCurriculumVitae();
   }
 
   ngAfterViewInit() {
     this.detailBlockElement = this.el.nativeElement.querySelector('.item.detail');
-    this.projectListElement = this.el.nativeElement.querySelector('ul.project-list');
+    this.projectListElement = this.el.nativeElement.querySelector('.container');
   }
 
-  getProjects(): void {
-    this.dataService.getTERNProjects()
-      .subscribe(projects => {
-        this.projects = projects;
-        console.log(projects.length);
-        this.mapListElements();
-      });
+  public detailBlock(event, index: number, project: Project) {
+    if (!this.detailProject) {
+      this.selectedProject = project.title;
+      this.openDetailBlock(index, project);
+    } else {
+      if (this.detailProject.title !== project.title) {
+        this.selectedProject = project.title;
+        setTimeout(() => {
+          this.openDetailBlock(index, project);
+        }, 1000);
+      }
+      this.closeDetailBlock();
+    }
   }
 
-  mapListElements() {
+  public closeDetailBlock() {
+    this.closeDetails = null;
+    setTimeout(() => {
+      this.detailProject = null;
+    }, 700);
+    setTimeout(() => {
+      this.renderer.removeChild(this.projectListElement, this.detailBlockElement);
+    }, 900);
+  }
+
+  public openExtras() {
+    setTimeout(() => {
+      this.open = !this.open;
+    }, 100);
+    this.extraType = 'ABOUT';
+  }
+
+  public switchTabs(tab: string) {
+    this.extraType = tab;
+  }
+
+  public close() {
+    this.open = false;
+    this.extraType = null;
+  }
+
+  private openDetailBlock(index: number, project: Project) {
+    this.closeDetails = project;
+    this.renderer.insertBefore(this.projectListElement, this.detailBlockElement, this.projectListElement.querySelectorAll('.item')[this.detailBlockPositionInList[this.detailBlockPositionPerListElement[index + 1]]]);
+    setTimeout(() => {
+      this.detailProject = project;
+    }, 25);
+    setTimeout(() => {
+      if (project.title === 'Veldweekend') {
+        this.displayApp = true;
+      }
+    }, 1500);
+  }
+
+  private mapListElements() {
     this.detailBlockPositionPerListElement = new Array<number>();
     this.detailBlockPositionInList = new Array<number>();
     let currentRow = 0;
@@ -71,41 +122,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  public detailBlock(event, index: number, project: Project) {
-    if (!this.detailProject) {
-      this.selectedProject = project.title;
-      this.openDetailBlock(index, project);
-    } else {
-      if (this.detailProject.title !== project.title) {
-        this.selectedProject = project.title;
-        setTimeout(() => {
-          this.openDetailBlock(index, project);
-        }, 1000);
-      }
-      this.closeDetailBlock();
-    }
+  private getProjects(): void {
+    this.dataService.getTERNProjects()
+      .subscribe(projects => {
+        this.projects = projects;
+        console.log(projects.length);
+        this.mapListElements();
+      });
   }
 
-  openDetailBlock(index: number, project: Project) {
-    this.closeDetails = project;
-    this.renderer.insertBefore(this.projectListElement, this.detailBlockElement, this.projectListElement.querySelectorAll('li')[this.detailBlockPositionInList[this.detailBlockPositionPerListElement[index + 1]]]);
-    setTimeout(() => {
-      this.detailProject = project;
-    }, 25);
-    setTimeout(() => {
-      if (project.title === 'Veldweekend') {
-        this.displayApp = true;
-      }
-    }, 1500);
-  }
-
-  closeDetailBlock() {
-    this.closeDetails = null;
-    setTimeout(() => {
-      this.detailProject = null;
-    }, 700);
-    setTimeout(() => {
-      this.renderer.removeChild(this.projectListElement, this.detailBlockElement);
-    }, 900);
+  private getCurriculumVitae(): void {
+    this.dataService.getLuminisCurriculumVitae()
+      .subscribe(curriculumVitae => {
+        this.curriculumVitae = curriculumVitae;
+        console.log(curriculumVitae);
+      });
   }
 }

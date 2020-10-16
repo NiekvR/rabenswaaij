@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Project } from '../home/project';
-import {CurrciculumVitae} from "../luminis/curriculum-vitae";
+import {CurrciculumVitae} from "../curriculum-vitea/curriculum-vitae";
 import { PROJECTS } from '../../assets/data/tern-projects';
 import {CURRICULUMVITAE} from "../../assets/data/luminis-curriculum-vitae";
 

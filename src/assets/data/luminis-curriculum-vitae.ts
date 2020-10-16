@@ -1,4 +1,4 @@
-import { CurrciculumVitae } from '../../app/luminis/curriculum-vitae';
+import { CurrciculumVitae } from '../../app/curriculum-vitea/curriculum-vitae';
 
 export const CURRICULUMVITAE: CurrciculumVitae = {
   name: 'Niek van Rabenswaaij',
@@ -24,17 +24,52 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
       endYear: '2010'
     }
   ],
+  work: [
+    {
+      name: 'TernWebdesign',
+      startYear: '2013',
+      endYear: 'heden'
+    },
+    {
+      name: 'Luminis',
+      startYear: '2016',
+      endYear: 'heden'
+    },
+    {
+      name: 'Atos',
+      startYear: '2014',
+      endYear: '2016'
+    },
+    {
+      name: 'Young Capital',
+      startYear: '2014',
+      endYear: '2015'
+    },
+    {
+      name: 'U-learning',
+      startYear: '2013',
+      endYear: '2014'
+    }
+  ],
   roles: [
     {
-      name: 'Software engineer',
+      name: 'Frontend developer',
+      skill: 5
+    },
+    {
+      name: 'Backend developer',
+      skill: 3
+    },
+    {
+      name: 'UX Designer',
+      skill: 3
+    },
+    {
+      name: 'Customer Service',
       skill: 4
     }
   ],
   programmingLanguages: [
-    {
-      name: 'Java',
-      skill: 2
-    },
     {
       name: 'HTML',
       skill: 4
@@ -46,16 +81,20 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
     {
       name: 'Javascript',
       skill: 4
+    },
+    {
+      name: 'Java',
+      skill: 2
     }
   ],
   methods: [
     {
-      name: 'Scrum',
+      name: 'Agile',
       skill: 4
     },
     {
       name: 'DevOps',
-      skill: 1
+      skill: 3
     },
     {
       name: 'Object Oriented Design',
@@ -63,24 +102,10 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
     }
   ],
   frameworks: {
-    backend: [
-      {
-        name: 'Groovy',
-        skill: 2
-      },
-      {
-        name: 'Grails',
-        skill: 4
-      },
-      {
-        name: 'SQL',
-        skill: 4
-      }
-    ],
     frontend: [
       {
         name: 'Angular',
-        skill: 4
+        skill: 5
       },
       {
         name: 'Angularjs',
@@ -89,6 +114,28 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
       {
         name: 'NodeJS',
         skill: 3
+      },
+      {
+        name: 'Firebase',
+        skill: 4
+      },
+      {
+        name: 'Mongo',
+        skill: 4
+      }
+    ],
+    backend: [
+      {
+        name: 'Groovy',
+        skill: 2
+      },
+      {
+        name: 'Grails',
+        skill: 3
+      },
+      {
+        name: 'SQL',
+        skill: 4
       }
     ],
     continuousIntegration: [
@@ -99,23 +146,31 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
       {
         name: 'Tomcat',
         skill: 4
+      },
+      {
+        name: 'Teamcity',
+        skill: 2
+      },
+      {
+        name: 'Azure',
+        skill: 2
       }
     ],
     versionControl: [
       {
         name: 'Git',
-        skill: 4
+        skill: 5
       },
       {
         name: 'NPM',
-        skill: 4
+        skill: 5
       }
     ]
   },
   profielschets: [
-    'Niek is een proactieve Software Engineer die graag wordt uitgedaagd door zijn werk. Hij is een doorzetter, ook onder stressvolle situaties. Hij werkt graag in teamverband en is niet bang daarbij de leiding te nemen. Niek is creatief en denkt “out-of-the-box”. Dit helpt hem bij het vinden van passende oplossingen.',
-    'De afgelopen jaren heeft Niek veel ervaring opgedaan op het gebied van zowel front-end als back-end ontwikkelen van webapplicaties. Als Java Developer heeft hij gewerkt aan verschillende projecten: bij het CIZ heeft hij in grotere scrum-teams geleerd om samen zorg te dragen voor verschillende applicaties, terwijl hij bij Huuskes zelfstandig applicaties verbeterd en uitgebreid heeft. Ook heeft Niek veel ervaring met het ontwikkelen van front-end applicaties door het meewerken aan verschillende angular applicaties.',
-    'Naast het ontwikkelen van software is Niek ook als tester betrokken geweest bij het waarborgen van de kwaliteit van de applicaties. Hij heeft hier veel ervaring mee opgedaan, met name op het gebied van geautomatiseerd testen. Het volgen van de masteropleiding Biologie heeft ervoor gezorgd dat Niek over een uitstekend analytisch denkvermogen beschikt en dat hij communicatief erg sterk is ontwikkeld.'
+    'TernWebdesign is het bedrijf van Niek van Rabenswaaij. De afgelopen jaren heeft Niek veel ervaring opgedaan met het bedenken en maken van zijn eigen applicaties. Hierbij is hij zelf verantwoordelijk geweest voor het bedenkden, ontwerpen, maken en testen van deze applicaties. Daarnaast heeft Niek voor die applicaties ook veel ervaring opgedaan met de \'customer service\' van applicaties. Hij kan hierdoor van meerwaarde zijn in elke fase van het ontwikkeltraject.',
+    'Niek is een proactieve Project Engineer die graag wordt uitgedaagd door zijn werk. Hij is een doorzetter, ook onder stressvolle situaties. Niek is creatief en denkt “out-of-the-box”. Dit helpt hem bij het vinden van passende oplossingen voor elk probleem.',
+    'Het volgen van de masteropleiding Biologie heeft ervoor gezorgd dat Niek over een uitstekend analytisch denkvermogen beschikt en dat hij communicatief erg sterk is ontwikkeld. Daarnaast heeft Niek de afgelopen jaren veel ervaring opgedaan op het gebied van zowel front-end als back-end ontwikkelen van webapplicaties met het werken aan veel verschillende projecten uitgevoerd voor Atos en Luminis.'
   ],
   projects: [
     {

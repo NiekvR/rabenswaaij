@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CurriculumVitaeComponent } from "./luminis/curriculum-vitae.component";
-
+import {CurriculumVitaeComponent} from './curriculum-vitea/curriculum-vitae.component';
 
 const appRoutes: Routes = [
   { path: 'home',        component: HomeComponent },
+  { path: 'luminis',        component: CurriculumVitaeComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }
 ];
 

@@ -33,6 +33,7 @@ export class TooltipDirective implements OnDestroy {
     if (this.tooltipColor) {
       this.componentRef.instance.color = this.tooltipColor;
       this.renderer.setStyle(this.element.nativeElement, 'color', this.tooltipColor);
+      this.renderer.setStyle(this.element.nativeElement, 'fill', this.tooltipColor);
     }
 
     // 2. Attach component to the appRef so that it's inside the ng component tree
@@ -50,6 +51,7 @@ export class TooltipDirective implements OnDestroy {
   mouseout() {
     if (this.tooltipColor) {
       this.renderer.removeStyle(this.element.nativeElement, 'color');
+      this.renderer.removeStyle(this.element.nativeElement, 'fill');
     }
     this.destroy();
   }

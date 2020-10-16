@@ -1,4 +1,4 @@
-import {Component, OnInit, Renderer2} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from '../services/data.service';
 import {CurrciculumVitae} from './curriculum-vitae';
 import { jsPDF } from 'jspdf';
@@ -10,14 +10,14 @@ import { from, Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'curriculum-vitae',
+  selector: 'tern-curriculum-vitae',
   templateUrl: './curriculum-vitae.component.html',
   styleUrls: ['./curriculum-vitae.component.scss']
 })
-export class CurriculumVitaeComponent implements OnInit{
+export class CurriculumVitaeComponent implements OnInit {
   public curriculumVitae: CurrciculumVitae;
 
-  constructor(private dataService: DataService, private renderer: Renderer2) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.getCurriculumVitae();
@@ -47,11 +47,11 @@ export class CurriculumVitaeComponent implements OnInit{
         tap(() => pdf.addPage()),
         tap(() => this.showTabContent(data, 2)),
         switchMap(() => this.convertHtmlToPDF(data as HTMLElement, pdf)))
-      .subscribe(() => pdf.save(`Luminis Profiel Niek van Rabenswaaij ${ moment().format('YYYYMMDD')}.pdf`))
+      .subscribe(() => pdf.save(`Luminis Profiel Niek van Rabenswaaij ${ moment().format('YYYYMMDD')}.pdf`));
   }
 
   showTabContent(data: Element, index: number) {
-    let tabElements = data.querySelectorAll('.tab-content');
+    const tabElements = data.querySelectorAll('.tab-content');
 
     for (let i = 0; i < tabElements.length; i++) {
       (<any>tabElements[i]).hidden = true;
@@ -67,10 +67,10 @@ export class CurriculumVitaeComponent implements OnInit{
   }
 
   private htmlCanvasElementToPdf(canvas: HTMLCanvasElement, pdf: any) {
-    let imgWidth = 208;
-    let imgHeight = canvas.height * imgWidth / canvas.width;
+    const imgWidth = 208;
+    const imgHeight = canvas.height * imgWidth / canvas.width;
 
-    const contentDataURL = canvas.toDataURL('image/png')
+    const contentDataURL = canvas.toDataURL('image/png');
 
     pdf.addImage(contentDataURL, 'PNG', 0, 0, imgWidth, imgHeight);
   }
