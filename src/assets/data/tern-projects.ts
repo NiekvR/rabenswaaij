@@ -3,6 +3,60 @@ import { Project } from '../../app/home/project';
 export const PROJECTS: Project[] = [
   {
     stack: 'full-stack',
+    headerImage: 'assets/img/limnotrons.png',
+    title: 'Aquacosm Data Platform',
+    excerpt: 'Aquacosms generen de hele dag data. Op dit platform word de data beschikbaar gemaakt.',
+    text: '<p>Een aquacosm is een grote bak met water waarin gecontroleerd onderzoek naar het waterleven kan worden gedaan. Elke minuut word er een meeting gedaan van, bijvoorbeeld, de temperatuur, zuurstofgehalte of lichthoeveelheid in het water, dit zorgt voor een heleboel data.</p><p>Deze applicatie haalt de data near-real-time op (elk half uur) en visualiseert de data op het dashboard. Zo heb je altijd een overzicht van je experiment en je data. Ook kun je hier alle data die door de aangesloten aquacosms is gegenereerd inzien en downloaden.</p>',
+    frameworks: {
+      html: true,
+      sass: true,
+      angular: true,
+      firebase: true
+    },
+    size: 'md',
+    color: '#55B6D7',
+    detailImage: 'assets/img/aquacosm-data_detail.png',
+    url: 'https://aquacosm-data.web.app',
+  },
+  {
+    stack: 'full-stack',
+    headerImage: 'assets/img/future_for_nature.png',
+    title: 'Future For Nature',
+    excerpt: 'Een tool ter behoeve van het beoordelen van alle FFN award kandidaten.',
+    text: '<p>Elk jaar worden er tussen de 150 en 250 kandidaten voorgedragen voor de FFN award. Deze applicatie is een tool voor zowel het FFN als het selectie commitee om het beoordelen van al deze kandidaten te vereenvoudigen,</p><p>Het bekijken en beoordelen van de kandidaten kan nu volledig digitaal en gaat met een druk op de knop naar het FFN.</p><p>Vanwege privacy gevoelige gegevens kan er geen screenshot van de applicatie zelf worden getoond.</p>',
+    frameworks: {
+      html: true,
+      sass: true,
+      angular: true,
+      firebase: true
+    },
+    size: 'md',
+    color: '#55B6D7',
+    detailImage: 'assets/img/future_for_nature_detail.png'
+  },
+
+  {
+    stack: 'full-stack',
+    headerImage: 'assets/img/intoMyGarden.png',
+    title: 'Into My Garden',
+    excerpt: 'Digitaal tuinarchief, welke planten staan waar in je tuin en wat voor onderhoud hebben ze nodig?',
+    text: '<p>Upload de plattegrond van je tuin en start met het \"planten\" van je tuin planten.</p>' +
+      '<p>Naast het overzicht waar welke plant in je tuin staat kun je ook alle informatie over je planten kwijt en het onderhoud dat moet gebeuren (en wanneer).</p>' +
+      '<p>Dit is een angular.io applicatie die gebruik maakt van firebase voor authenticatie, database, storage and hosting.</p>',
+    frameworks: {
+      html: true,
+      sass: true,
+      java: true,
+      angular: true,
+      firebase: true
+    },
+    size: 'md',
+    color: '#55B6D7',
+    detailImage: 'assets/img/intoMyGarden_detail.png',
+    url: 'https://intomygarden.nl/',
+  },
+  {
+    stack: 'full-stack',
     headerImage: 'assets/img/kuikenteller.jpg',
     title: 'Kuiken Teller',
     excerpt: 'Een PWA voor een citizens-science project om zoveel mogelijk waarnemingen van eendenkuikens te vergaren.',
@@ -31,7 +85,7 @@ export const PROJECTS: Project[] = [
       js: true,
     },
     size: 'sm',
-    color: '#76B542',
+    color: '#BED63A',
     detailLink: 'http://vanrabenswaaij.nl/veldweekend/',
     url: 'http://vanrabenswaaij.nl/veldweekend/',
     height: 500
@@ -49,7 +103,7 @@ export const PROJECTS: Project[] = [
       js: true,
     },
     size: 'md',
-    color: '#55B6D7',
+    color: '#BED63A',
     detailImage: 'assets/img/website_nicole.png',
     url: 'https://voetreflexzonetherapienicole.nl/'
   },
@@ -85,46 +139,10 @@ export const PROJECTS: Project[] = [
       firebase: true
     },
     size: 'md',
-    color: '#BED63A',
+    color: '#55B6D7',
     detailImage: 'assets/img/ternSupportSystem_detail.png',
     height: 350
   },
-  {
-    stack: 'full-stack',
-    headerImage: 'assets/img/intoMyGarden.png',
-    title: 'Into My Garden',
-    excerpt: 'Digitaal tuinarchief, welke planten staan waar in je tuin en wat voor onderhoud hebben ze nodig?',
-    text: '<p>Upload de plattegrond van je tuin en start met het \"planten\" van je tuin planten.</p>' +
-      '<p>Naast het overzicht waar welke plant in je tuin staat kun je ook alle informatie over je planten kwijt en het onderhoud dat moet gebeuren (en wanneer).</p>' +
-      '<p>Dit is een angular.io applicatie die gebruik maakt van firebase voor authenticatie, database, storage and hosting.</p>',
-    frameworks: {
-      html: true,
-      sass: true,
-      java: true,
-      angular: true,
-      firebase: true
-    },
-    size: 'lg',
-    color: '#BED63A',
-    detailImage: 'assets/img/intoMyGarden_detail.png',
-    url: 'https://intomygarden.nl/',
-  },
-  // {
-  //   stack: 'frontend',
-  //   headerImage: 'assets/img/crocodile.jpg',
-  //   title: 'GROCS',
-  //   excerpt: '',
-  //   text: '',
-  //   frameworks: {
-  //     html: true,
-  //     sass: true,
-  //     angular: true,
-  //   },
-  //   size: 'md',
-  //   color: '#BED63A',
-  //   detailImage: 'assets/img/grocs.png',
-  //   url: 'https://grocs-8f331.web.app',
-  // },
   {
     stack: 'backend',
     headerImage: 'assets/img/brandganzen.jpg',

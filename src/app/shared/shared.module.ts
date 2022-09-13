@@ -9,25 +9,22 @@ import {SafePipe} from './pipes/safe.directive';
 
 
 @NgModule({
-  declarations: [
-    TooltipComponent,
-    TooltipDirective,
-    OpenDetailBlockDirective,
-    OrderByPipe,
-    SafePipe
-  ],
-  imports: [
-    CommonModule
-  ],
-  entryComponents: [
-    TooltipComponent
-  ],
-  exports: [
-    TooltipComponent,
-    TooltipDirective,
-    OpenDetailBlockDirective,
-    OrderByPipe,
-    SafePipe
-  ]
+    declarations: [
+        TooltipComponent,
+        TooltipDirective,
+        OpenDetailBlockDirective,
+        OrderByPipe,
+        SafePipe
+    ],
+    imports: [
+        CommonModule
+    ],
+    exports: [
+        TooltipComponent,
+        TooltipDirective,
+        OpenDetailBlockDirective,
+        OrderByPipe,
+        SafePipe
+    ]
 })
 export class SharedModule { }

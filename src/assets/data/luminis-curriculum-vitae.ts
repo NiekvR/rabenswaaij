@@ -33,7 +33,7 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
     {
       name: 'Luminis',
       startYear: '2016',
-      endYear: 'heden'
+      endYear: '2021'
     },
     {
       name: 'Atos',
@@ -62,7 +62,7 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
     },
     {
       name: 'UX Designer',
-      skill: 3
+      skill: 4
     },
     {
       name: 'Customer Service',
@@ -168,13 +168,14 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
     ]
   },
   profielschets: [
-    'TernWebdesign is het bedrijf van Niek van Rabenswaaij. De afgelopen jaren heeft Niek veel ervaring opgedaan met het bedenken en maken van zijn eigen applicaties. Hierbij is hij zelf verantwoordelijk geweest voor het bedenkden, ontwerpen, maken en testen van deze applicaties. Daarnaast heeft Niek voor die applicaties ook veel ervaring opgedaan met de \'customer service\' van applicaties. Hij kan hierdoor van meerwaarde zijn in elke fase van het ontwikkeltraject.',
-    'Niek is een proactieve Project Engineer die graag wordt uitgedaagd door zijn werk. Hij is een doorzetter, ook onder stressvolle situaties. Niek is creatief en denkt “out-of-the-box”. Dit helpt hem bij het vinden van passende oplossingen voor elk probleem.',
-    'Het volgen van de masteropleiding Biologie heeft ervoor gezorgd dat Niek over een uitstekend analytisch denkvermogen beschikt en dat hij communicatief erg sterk is ontwikkeld. Daarnaast heeft Niek de afgelopen jaren veel ervaring opgedaan op het gebied van zowel front-end als back-end ontwikkelen van webapplicaties met het werken aan veel verschillende projecten uitgevoerd voor Atos en Luminis.'
+    'TernWebdesign is het bedrijf van Niek van Rabenswaaij. De afgelopen jaren heeft Niek veel ervaring opgedaan met het bedenken en maken van zijn eigen applicaties. Hierbij is hij zelf verantwoordelijk geweest voor alle stappen van die nodig zijn voor het ontwikkelen van een succesvolle applicatie. Daarnaast heeft Niek voor die applicaties ook veel ervaring opgedaan met de \'customer service\' van applicaties. Hij kan hierdoor van meerwaarde zijn in elke fase van het ontwikkeltraject.',
+    'Niek is een proactieve ontwikkelaar die graag wordt uitgedaagd door zijn werk. Hij is een doorzetter, ook onder stressvolle situaties. Niek is creatief en denkt “out-of-the-box”. Dit helpt hem bij het vinden van passende oplossingen voor elk probleem.',
+    'Het volgen van de masteropleiding Biologie heeft ervoor gezorgd dat Niek over een uitstekend analytisch denkvermogen beschikt en dat hij communicatief erg sterk is ontwikkeld. Daarnaast heeft Niek de afgelopen jaren veel ervaring opgedaan op het gebied van zowel front-end als back-end ontwikkelen van webapplicaties met het werken aan veel verschillende projecten uitgevoerd voor Atos en Luminis en natuurlijk zijn eigen bedrijf',
+    'De combinatie van zijn masteropleiding biologie en zijn ervaring in het ontwikkelen van webapplicaties maakt Niek uitermate geschikt voor het ontwikkelen van biologisch geörienteerde applicaties en dat is dan ook waar zijn passie ligt.'
   ],
   projects: [
     {
-      periode: 'April 2018 - heden',
+      periode: 'April 2018 - 2020',
       opdrachtgever: 'Alfa-Beta-Solutions',
       rol: 'Front-end Developer',
       vaardigheden: 'Angularjs, HTML, SCSS, Typescript',
@@ -182,7 +183,7 @@ export const CURRICULUMVITAE: CurrciculumVitae = {
       werkzaamheden: 'Niek werkt bij Alfa-Beta-Solutions in een klein team dat werkt aan meerdere Angular applicaties. Hij werkt met een vooraf vastgestelde set aan frameworks, zoals bootstrap, ui-grid en een door INFOR geschreven bibliotheek genaamd ODIN om data vanuit het M3-systeem zichtbaar en aanpasbaar te maken voor de klant.'
     },
     {
-      periode: 'November 2017 – heden',
+      periode: 'November 2017 – 2021',
       opdrachtgever: 'Advitrae – Xedule',
       rol: 'Front-end Developer',
       vaardigheden: 'Angular 5, HTML, SCSS, Typescript',
