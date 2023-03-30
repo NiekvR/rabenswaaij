@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
     headerImage: 'assets/img/kuikenteller.jpg',
     title: 'Kuiken Teller',
     excerpt: 'Een PWA voor een citizens-science project om zoveel mogelijk waarnemingen van eendenkuikens te vergaren.',
-    text: '<p>Deze applicatie is gemaakt om te onderzoeken of de achteruitgang van de wilde eend iets te maken heeft met de overleving van hun kuikens. Het project is begonnen in 2015 als een simpel webformulier en is in 2020 helemaal vernieuwd als Progressive Web Applicatie welke ook op de mobiele telefoon geïnstalleerd kan worden.</p><p>Dit jaar zijn er al meer dan 10000 waarnemingen ingestuurd.</p>',
+    text: '<p>Deze applicatie is gemaakt om te onderzoeken of de achteruitgang van de wilde eend iets te maken heeft met de overleving van hun kuikens. Het project is begonnen in 2015 als een simpel webformulier en is in 2020 helemaal vernieuwd als Progressive Web Applicatie welke ook op de mobiele telefoon geïnstalleerd kan worden.</p><p>In totaal zijn er, via de applicatie, al meer dan 25000 waarnemingen ingevoerd.</p>',
     frameworks: {
       html: true,
       sass: true,
@@ -86,8 +86,8 @@ export const PROJECTS: Project[] = [
     },
     size: 'sm',
     color: '#BED63A',
-    detailLink: 'http://vanrabenswaaij.nl/veldweekend/',
-    url: 'http://vanrabenswaaij.nl/veldweekend/',
+    detailLink: 'https://vanrabenswaaij.nl/veldweekend/',
+    url: 'https://vanrabenswaaij.nl/veldweekend/',
     height: 500
   },
   {
